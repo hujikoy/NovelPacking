@@ -1,16 +1,15 @@
 import novelspider
 
-start_index_1 = 1006272
-end_index_1 = 1007299
+temp_url = 'http://www.xxbiquge.com/0_142/8773465.html'
 
-start_index_2 = 8742328
-end_index_2 = 8884200
-
-for i in range(8760931, end_index_2+1):
+for i in range(1000):
     try:
-        novel = novelspider.find_novel('http://www.xxbiquge.com/0_142/' + str(i) + '.html')
+        novel_tul = novelspider.find_novel(temp_url)
+        temp_url = novel_tul[1]
+        if temp_url == 'http://www.xxbiquge.com/0_142/':
+            break
         with open('novel.txt', 'a') as novel_file:
-            novel_file.write(novel)
+            novel_file.write(novel_tul[0])
     except Exception as e:
         er = e
         # print('i = ' + str(i))
