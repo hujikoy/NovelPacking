@@ -6,7 +6,7 @@ def find_novel(url):
         data = f.read()
         content = data.decode('utf-8')
 
-        title_start_str = '<h1>';
+        title_start_str = '<h1>'
         title_end_str = '</h1>'
 
         title_start_pos = content.index(title_start_str)
@@ -28,3 +28,6 @@ def find_novel(url):
 
         return title + novel + '\n'
 
+temp_url = 'http://www.xxbiquge.com/0_142/8773465.html'
+temp_novel = find_novel(url=temp_url)
+print(temp_novel)
